@@ -4,16 +4,15 @@
         <link rel="stylesheet" type="text/css" href="CSS/main.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="JS/main.js"></script>
+        <script src="JS/registration.js"></script>
     </head>
     <body>
         <div id="mainContainer">
-            <div id="modalErrors" class="warning">
+            <div id="modalErrors" class="warning" style="display: none;">
                 <div id="errorIcon" class="glyphicon glyphicon-question-sign">
                 </div>
                 <div id="errorMessage">
-                    <span>
-                        Email Address is invalid. Please re-enter and try again.
-                    </span>
+                    Email Address is invalid. Please re-enter and try again.
                 </div>
             </div>
             <div id="modalLogin">
@@ -31,8 +30,8 @@
                 <div id="modalParentForm" class="modalLoginItem">
                     <div id="modalLoginForm">
                         <div id="modalLoginFormContent">
-                            <input type="text" placeholder="Username"/>
-                            <input type="password" placeholder="Password"/>
+                            <input type="email" placeholder="Email"/>
+                            <input id="modalLoginPassword" type="password" placeholder="Password"/>
                             <button id="modalLoginButton" type="button">LOG IN</button>
                         </div>
                         <div id="modalLoginFormFooter">
@@ -42,7 +41,6 @@
                         </div>
                     </div>
                     <div id="modalRegisterForm" style="display: none;">
-                        <input id="nameField" type="text" placeholder="Name" required/>
                         <input id="emailField" type="email" placeholder="Email Address" required/>
                         <input id="originalPasswordField" type="password" placeholder="Password" required/>
                         <input id="confirmPasswordField" type="password" placeholder="Confirm Password" required/>

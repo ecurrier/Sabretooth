@@ -1,52 +1,81 @@
-var currentForm;
-var loginTab;
-var registerTab;
-var loginForm;
-var registerForm;
+(function (global) {
+    "use strict";
+    global.Sabretooth = global.Sabretooth || {};
+    global.Sabretooth.Forms = global.Sabretooth.Forms || {};
 
-function loginUser() {
-    //alert("Login User");
-}
+    global.Sabretooth.Forms.main = (function () {
+        var currentForm,
+            loginTab,
+            registerTab,
+            loginForm,
+            registerForm;
 
-function switchForm() {
-    if(currentForm === "login"){
-        registerForm.delay(150).fadeIn(150);
- 		loginForm.fadeOut(150);
+        function loginUser() {
+            alert("Login User");
+        }
 
-        loginTab.removeClass("selectorActive");
-        registerTab.addClass("selectorActive");
-        currentForm = "register";
-    }
-    else {
-        loginForm.delay(150).fadeIn(150);
- 		registerForm.fadeOut(150);
+        function switchForm() {
+            if(currentForm === "login"){
+                registerForm.delay(150).fadeIn(150);
+                loginForm.fadeOut(150);
+                clearInputFields(loginForm);
 
-        registerTab.removeClass("selectorActive");
-        loginTab.addClass("selectorActive");
+                loginTab.removeClass("selectorActive");
+                registerTab.addClass("selectorActive");
+                currentForm = "register";
+            }
+            else {
+                loginForm.delay(150).fadeIn(150);
+                registerForm.fadeOut(150);
+                clearInputFields(registerForm);
 
-        currentForm = "login";
-    }
-}
+                registerTab.removeClass("selectorActive");
+                loginTab.addClass("selectorActive");
+                currentForm = "login";
+            }
+        }
 
-function attachHandlers() {
-    $("#modalLoginButton").click(loginUser);
-    $("#selectorLogin").click(switchForm);
-    $("#selectorRegister").click(switchForm);
-}
+        function clearInputFields(form) {
+            var formId  = form.attr('id');
+            $("#" + formId + " input").each(function(index) {
+                $(this).val("");
+                $(this).removeClass('error');
+                $(this).removeClass('warning');
+            });
 
-function initializeVariables() {
-    currentForm = "login";
+            $("#modalErrors").fadeOut(150);
+        }
 
-    loginTab = $("#selectorLogin");
-    loginForm = $("#modalLoginForm");
+        function attachHandlers() {
+            $("#modalLoginButton").click(loginUser);
+            $("#selectorLogin").click(switchForm);
+            $("#selectorRegister").click(switchForm);
+            $("#modalLoginPassword").keyup(function(event) {
+                if(event.which === 13){
+                    loginUser();
+                }
+            });
+        }
 
-    registerTab = $("#selectorRegister");
-    registerForm = $("#modalRegisterForm");
-}
+        function initializeVariables() {
+            currentForm = "login";
 
-function onLoad() {
-    initializeVariables();
-    attachHandlers();
-}
+            // Cache Selectors
+            loginTab = $("#selectorLogin");
+            loginForm = $("#modalLoginForm");
+            registerTab = $("#selectorRegister");
+            registerForm = $("#modalRegisterForm");
+        }
 
-$(document).ready(onLoad);
+        function onLoad() {
+            initializeVariables();
+            attachHandlers();
+        }
+
+        return {
+            onLoad: onLoad
+        };
+    }());
+}(this));
+
+$(document).ready(Sabretooth.Forms.main.onLoad);

@@ -175,6 +175,14 @@ body {
     border: 1px solid lightgrey;
 }
 
+#modalParentForm input.error {
+    background-color: #ffcece;
+}
+
+#modalParentForm input.warning {
+    background-color: #fffcc9;
+}
+
 #modalLoginButton {
     display: block;
     margin: 0 auto;
