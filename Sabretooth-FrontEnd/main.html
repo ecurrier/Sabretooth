@@ -8,22 +8,37 @@
     <body>
         <div id="mainContainer">
             <div id="modalLogin">
-                <div id="modalLoginTitle" class="modalLoginItem">
-                    <div id="modalLoginTitleText">
-                        <span>Sabretooth</span>
+                <div id="modalLoginSelector">
+                    <ul id="modalLoginSelectorTabs">
+                        <li id="selectorLogin" class="selectorActive">
+                            <a href="#">Login</a>
+                        </li>
+                        <li id="selectorRegister">
+                            <a href="#">Register</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </div>
+                <div id="modalParentForm" class="modalLoginItem">
+                    <div id="modalLoginForm">
+                        <div id="modalLoginFormContent">
+                            <input type="text" placeholder="Username"/>
+                            <input type="password" placeholder="Password"/>
+                            <button id="modalLoginButton" type="button">LOG IN</button>
+                        </div>
+                        <div id="modalLoginFormFooter">
+                            <span>
+                                <a href="#" style="color: gray">Forgot Password?</a>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div id="modalLoginForm" class="modalLoginItem">
-                    <input type="text" placeholder="Username"/>
-                    <input type="password" placeholder="Password"/>
-                    <button id="modalLoginButton" type="button">Login</button>
-                </div>
-                <div id="modalLoginFooter" class="modalLoginItem">
-                    <span>
-                        <a href="#">Forgot Password?</a>
-                        |
-                        <a href="registration.html">Not Registered?</a>
-                    </span>
+                    <div id="modalRegisterForm" style="display: none;">
+                        <input id="nameField" type="text" placeholder="Name" required/>
+                        <input id="emailField" type="email" placeholder="Email Address" required/>
+                        <input id="originalPasswordField" type="password" placeholder="Password" required/>
+                        <input id="confirmPasswordField" type="password" placeholder="Confirm Password" required/>
+                        <button id="modalRegisterButton" type="button">REGISTER</button>
+                    </div>
                 </div>
             </div>
         </div>
