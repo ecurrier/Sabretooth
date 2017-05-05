@@ -15,16 +15,10 @@ function registerUser() {
 }
 
 function errorInName() {
-    var firstName = $("#firstNameField").val(),
-        lastName = $("#lastNameField").val();
+    var fullName = $("#nameField").val();
 
-    if(firstName === "" || firstName == null){
-        $("#nameError").text("First Name is required.");
-        return true;
-    }
-
-    if(lastName === "" || lastName == null){
-        $("#nameError").text("Last Name is required.");
+    if(fullName === "" || fullName == null){
+        $("#nameError").text("Full Name is required.");
         return true;
     }
 

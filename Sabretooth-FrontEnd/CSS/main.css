@@ -14,6 +14,73 @@ body {
     height: 100%;
 }
 
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url(../Fonts/glyphicons-halflings-regular.eot);
+    src: url(../Fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), 
+        url(../Fonts/glyphicons-halflings-regular.woff2) format('woff2'), 
+        url(../Fonts/glyphicons-halflings-regular.woff) format('woff'), 
+        url(../Fonts/glyphicons-halflings-regular.ttf) format('truetype'), 
+        url(../Fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.glyphicon-question-sign:before {
+    content: "\e085";
+}
+
+.glyphicon-exclamation-sign:before {
+    content: "\e101";
+}
+
+#modalErrors {
+    position: absolute;
+    top: 23.5%;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 4px;
+    width: 25%;
+    height: 5%;
+}
+
+#errorIcon {
+    width: 5%;
+    float: left;
+    margin: 12px;
+    font-size: 25px;
+}
+
+#modalErrors.error {
+    background-color: #ffcece;
+}
+
+#modalErrors.error > #errorIcon {
+    color: red;
+}
+
+#modalErrors.warning {
+    background-color: #fffcc9;
+}
+
+#modalErrors.warning > #errorIcon {
+    color: #bcb200;
+}
+
+#errorMessage {
+    font-size: 16px;
+    margin: 14px;
+}
+
 #modalLogin {
     background-color: white;
     box-shadow: 0px 0px 10px black;
